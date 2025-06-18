@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DevOps Box</title>
-</head>
-<body>
-  <h1>Welcome to DevOps Box 💻</h1>
-  <p>Automation at your fingertips.</p>
-</body>
+  <head><title>DevOps Box</title></head>
+  <body>
+    <h1>Frontend</h1>
+    <p id="backend-response">Loading...</p>
+
+    <script>
+      fetch('/api/')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('backend-response').innerText = data;
+        })
+        .catch(err => {
+          document.getElementById('backend-response').innerText = 'Error fetching backend: ' + err;
+        });
+    </script>
+  </body>
 </html>

@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    image: my-nginx-site
+    container_name: devops-web
+    ports:
+      - "8081:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html
+    depends_on:
+      - backend
+    networks:
+      - devops-net
+
+  backend:
+    build: ./backend
+    image: my-backend
+    container_name: devops-backend
+    ports:
+      - "3000:3000"
+    networks:
+      - devops-net
+    restart: always
+
+networks:
+  devops-net:
+    driver: bridge
