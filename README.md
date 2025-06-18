@@ -22,5 +22,5 @@ This is a full-stack mini project to practice Docker, multi-container apps, and 
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/devops-box.git
+git clone https://github.com/sabari7868/devops-box.git
 cd devops-box
